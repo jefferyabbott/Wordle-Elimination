@@ -14,7 +14,7 @@ notInIndex3 = []
 notInIndex4 = []
 
 # read possible words list into memory
-File.readlines("words.txt").each do |word|
+File.readlines("rankedWords.txt").each do |word|
     if word != ""
         words.push(word)
     end

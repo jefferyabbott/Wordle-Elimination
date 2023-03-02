@@ -20,12 +20,14 @@ File.readlines("rankedWords.txt").each do |word|
     end
 end
 
-def getConfirmedLetter(position, indexVar) 
+def getConfirmedLetter(position, indexVar, lettersInWord) 
     if indexVar == ''
         puts "position #{position}:"
         temp = gets
         if temp.chomp != ''
-            return temp.chomp
+            letter = temp.chomp
+            lettersInWord.push letter
+            return letter
         end
     else 
         puts "position #{position} is #{indexVar}"
@@ -56,11 +58,11 @@ end
 
     # confirmed letters in each position
     puts "Letters in word: "
-    index0 = getConfirmedLetter(0, index0)
-    index1 = getConfirmedLetter(1, index1)
-    index2 = getConfirmedLetter(2, index2)
-    index3 = getConfirmedLetter(3, index3)
-    index4 = getConfirmedLetter(4, index4)
+    index0 = getConfirmedLetter(0, index0, lettersInWord)
+    index1 = getConfirmedLetter(1, index1, lettersInWord)
+    index2 = getConfirmedLetter(2, index2, lettersInWord)
+    index3 = getConfirmedLetter(3, index3, lettersInWord)
+    index4 = getConfirmedLetter(4, index4, lettersInWord)
 
     # confirmed letters in word, but not in position
     getLetterInWrongPosition(0, notInIndex0, lettersInWord)
@@ -74,7 +76,9 @@ end
     lettersNot = gets
 
     lettersNot.chomp.split('').each do |letter|
-        lettersNotInWord.push(letter)
+        if !lettersInWord.include?(letter)
+            lettersNotInWord.push(letter)
+        end
     end
 
     # find remaining words

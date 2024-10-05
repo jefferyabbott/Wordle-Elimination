@@ -8,13 +8,13 @@ You'll be asked to enter your results.
 
 ### position 
 if you found a match, enter it here\
-position is 0-index:
+position is 0-indexed:
 
 >position 0 (first letter)\
 >position 1 (second letter)\
 >position 2 (third letter)\
 >position 3 (fourth letter)\
->position 4 (fifth letter)\
+>position 4 (fifth letter)
 
 ### not in position 
 
